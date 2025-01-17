@@ -1,0 +1,22 @@
+﻿@page "/"
+@inject IConfiguration config
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@if(config is not null){
+    <ul>
+        <li>
+            <b>Default Connection:</b> <i style="color: darkred; background-color: lightgray">@(config.GetConnectionString("Default"))</i>
+        </li>
+        <li>
+            <b>Root Value:</b> <i style="color: darkred; background-color: lightgray">@(config.GetValue<string>("RoootValue"))</i>
+        </li>
+        <li>
+            <b>Nested Value:</b> <i style="color: darkblue; background-color: lightgray">@(config.GetValue<string>("Nested:NestedValue"))</i>
+        </li>
+    </ul>
+}
